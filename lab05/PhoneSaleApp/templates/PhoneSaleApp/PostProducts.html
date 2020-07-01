@@ -1,0 +1,46 @@
+{% extends 'PhoneSaleApp/base.html' %}
+<!----------------- body content ----------------------->
+{% block content %}
+
+{% load static %}
+<div class="container">
+    <h3>Đăng sản phẩm mới</h3>
+    <form>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="email">Tiêu đề:</label>
+                    <input type="email" class="form-control" placeholder="Enter email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Giá bán:</label>
+                    <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                </div>
+                <div class="form-group">
+                    <label for="comment">Mô tả sản phẩm:</label>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Hãng</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Ảnh minh họa</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                  </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Đăng tin</button>
+        </div>
+      </form>
+</div>
+
+{% endblock %}
+<!----------------- footer ----------------------->

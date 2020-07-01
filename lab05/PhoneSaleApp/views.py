@@ -9,6 +9,9 @@ def index(request):
 def detail(request):
     return render(request, "PhoneSaleApp/ProductDetail.html") 
 
+
+def postproduct(request):
+    return render(request, "PhoneSaleApp/PostProducts.html") 
 # post san pham moi: input: model san pham, output: json{success: true}
 # update san pham: input: nhu tren, output nhu tren
 # delete: input: id (param), output: json{success: true or false}

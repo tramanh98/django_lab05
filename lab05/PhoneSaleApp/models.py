@@ -5,7 +5,7 @@ from django.core.validators import MinValueValidator, MinLengthValidator
 
 
 class Brand (models.Model):
-    idBrand = models.CharField(unique=True, primary_key=True, validators=[
+    idBrand = models.CharField(unique=True,primary_key=True, validators=[
                                MinLengthValidator(3, message="ID must have at least 3 characters")], max_length=20)
     nameBrand = models.CharField(max_length=200)
     descriptionBrand = models.TextField(default="This is a famous brand")
@@ -29,19 +29,3 @@ class Product (models.Model):
 
     def __str__(self):
         return self.idProduct
-#model San Pham 
-# id
-# id Brand = Foreign Key of Hang
-# name
-# description
-# price
-#numberRemain
-#createdAt
-#updatedAt
-#avatar
-
-
-#Model Hang
-# idBrand
-#nameBrand
-#descriptionBrand

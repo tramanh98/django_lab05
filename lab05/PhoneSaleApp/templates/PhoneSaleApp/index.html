@@ -1,7 +1,9 @@
 {% extends 'PhoneSaleApp/base.html' %}
+{% load item_tag %}
 {% load static %}
 <!----------------- body content ----------------------->
 {% block content %}
+
 <div class="container">
     <form class="form-inline">
         <div class="mx-auto" style="width: 100%;">
@@ -9,67 +11,9 @@
             <button class="btn btn-success" type="submit">Tìm kiếm</button>
         </div>
     </form>
-  <h3>Collapsible Navbar</h3>
+  <h3>Phone Sale App</h3>
   <div class="row">
-      <div class="col-lg-3">
-            <div class="card">
-                <a href="{% url 'PhoneSaleApp:prodetail'  %}"><img src="{% static 'img/iphone11.jpg' %}" alt="Denim Jeans" style="width:100%"></a>
-                <div class="intro">
-                    <a href="{% url 'PhoneSaleApp:prodetail' %}"><h5>iPhone 11 Pro Max 64GB</h5></a>
-                    <p class="price">29.000.000 VND</p>
-                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-link"><i class='fas fa-pencil-alt' style='font-size:24px'></i></button>
-                    <button type="button" class="btn btn-link"><i class='fas fa-trash-alt' style='font-size:24px'></i></button>
-                </div>
-            </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="card">
-            <a href="#"><img src="{% static 'img/iphone11.jpg' %}" alt="Denim Jeans" style="width:100%"></a>
-            <div class="intro">
-                <a href="#"><h5>iPhone 11 Pro Max 64GB</h5></a>
-                <p class="price">29.000.000 VND</p>
-                <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-            </div>
-            <div>
-                <button type="button" class="btn btn-link"><i class='fas fa-pencil-alt' style='font-size:24px'></i></button>
-                <button type="button" class="btn btn-link"><i class='fas fa-trash-alt' style='font-size:24px'></i></button>
-            </div>
-        </div>
-  </div>
-  <div class="col-lg-3">
-    <div class="card">
-        <a href="#"><img src="{% static 'img/iphone11.jpg' %}" alt="Denim Jeans" style="width:100%"></a>
-        <div class="intro">
-            <a href="#"><h5>iPhone 11 Pro Max 64GB</h5></a>
-            <p class="price">29.000.000 VND</p>
-            <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-        </div>
-        <div>
-            <button type="button" class="btn btn-link"><i class='fas fa-pencil-alt' style='font-size:24px'></i></button>
-            <button type="button" class="btn btn-link"><i class='fas fa-trash-alt' style='font-size:24px'></i></button>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3">
-    <div class="card">
-        <a href="#"><img src="{% static 'img/iphone11.jpg' %}" alt="Denim Jeans" style="width:100%"></a>
-        <div class="intro">
-            <a href="#"><h5>iPhone 11 Pro Max 64GB</h5></a>
-            <p class="price">29.000.000 VND</p>
-            <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-        </div>
-        <div>
-            <button type="button" class="btn btn-link"><i class='fas fa-pencil-alt' style='font-size:24px'></i></button>
-            <button type="button" class="btn btn-link"><i class='fas fa-trash-alt' style='font-size:24px'></i></button>
-        </div>
-    </div>
-</div>
+        {% show_results %}
   </div>
 </div>
-{% endblock %}
-
-<!----------------- footer ----------------------->
-
+{% endblock content %}

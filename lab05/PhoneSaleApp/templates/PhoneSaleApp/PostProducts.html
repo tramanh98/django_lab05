@@ -4,43 +4,108 @@
 
 {% load static %}
 <div class="container">
-    <h3>Đăng sản phẩm mới</h3>
-    <form>
+    <h3>{{ title }}</h3>
+    
+    {% if edit %}
+    <form action="{% url 'PhoneSaleApp:update' product.idProduct %}" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label for="email">Tiêu đề:</label>
-                    <input type="email" class="form-control" placeholder="Enter email" id="email">
+                    <label for="name">Tiêu đề: </label>
+                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm" name="name" id="name"
+                    value="{{ product.name }}">
                 </div>
                 <div class="form-group">
-                    <label for="pwd">Giá bán:</label>
-                    <input type="password" class="form-control" placeholder="Enter password" id="pwd">
-                </div>
-                <div class="form-group">
-                    <label for="comment">Mô tả sản phẩm:</label>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Hãng</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                    <label for="brand">Hãng</label>
+                    <select class="form-control" name="brand" id="newbrand" >
+                        <option disabled value="">--------</option>
+                        <option value="vst">Vsmart</option>
+                        <option value="oppo">Oppo</option>
+                        <option value="nokia">Nokia</option>
+                        <option value="iphone">Iphone</option>
+                        <option value="SS501">Sam sung</option>
                     </select>
-                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="price">Giá bán: </label>
+                    <input type="number" class="form-control" placeholder="Nhập giá bán" name="price" id="price"
+                    value="{{ product.price }}">
+                    
+                </div>
+                <div class="form-group">
+                    <label for="description">Mô tả sản phẩm:</label>
+                    <textarea class="form-control" rows="8" id="description" name="description">{{ product.description }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="numberRemain">Số lượng: </label>
+                    <input type="number" class="form-control" id="numberRemain" name="numberRemain" 
+                    value="{{ product.numberRemain }}">
+                </div>
+                
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label for="exampleFormControlFile1">Ảnh minh họa</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                  </div>
+                    <label for="avatar">Ảnh minh họa</label>
+                    <input type="file" class="form-control-file" name="avatar" id="avatar" value="{{ product.avatar }}" >
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Đăng tin</button>
+            <button type="submit" class="btn btn-primary">{{ button }}</button>
         </div>
+    </form>
+    {% else %}
+    <form action="{% url 'PhoneSaleApp:post' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="name">Tiêu đề: </label>
+                <input type="text" class="form-control" placeholder="Nhập tên sản phẩm" name="name" id="name">
+               
+            </div>
+            <div class="form-group">
+                <label for="idProduct">Mã sản phẩm: </label>
+                <input type="text" class="form-control" placeholder="Nhập tên sản phẩm" name="idProduct" id="idProduct">
+                
+            </div>
+            <div class="form-group">
+                <label for="brand">Hãng</label>
+                <select  class="form-control" name="brand" id="brand">
+                    <option selected="selected" disabled value="">--------</option>
+                    <option value="vst">Vsmart</option>
+                    <option value="oppo">Oppo</option>
+                    <option value="nokia">Nokia</option>
+                    <option value="iphone">Iphone</option>
+                    <option value="SS501">Sam sung</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Giá bán: </label>
+                <input type="number" class="form-control" placeholder="Nhập giá bán" name="price" id="price">
+                
+            </div>
+            <div class="form-group">
+                <label for="description">Mô tả sản phẩm:</label>
+                <textarea class="form-control" rows="8" id="description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="numberRemain">Số lượng: </label>
+                <input type="number" class="form-control" id="numberRemain" name="numberRemain">
+            </div>
+            
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="avatar">Ảnh minh họa</label>
+                <input type="file" class="form-control-file" name="avatar" id="avatar">
+                
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ button }}</button>
+    </div>
+    {% endif %}
       </form>
 </div>
+
 
 {% endblock %}
 <!----------------- footer ----------------------->

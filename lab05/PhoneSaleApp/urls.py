@@ -8,7 +8,8 @@ urlpatterns = [
     path('', views.index, name = "index"),
     path('detail/<slug:product_id>', views.detail, name = "detail"),
     path('post/', views.post_product, name = "post"),
-    path('update/<slug:product_id>', views.update_product, name = "update")
+    path('update/<slug:product_id>', views.update_product, name = "update"),
+    path('delete/<slug:product_id>', views.delete_product, name = "delete")
     # url(r'detail/(?<pk>[^/]+)/$', views.detail, name = "detail")
 ]
 

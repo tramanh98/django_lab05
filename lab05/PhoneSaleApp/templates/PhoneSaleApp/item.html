@@ -1,22 +1,22 @@
 {% load static %}
+{% load item_tag %}
 {% for product in products %}
-<div class="col-lg-3">
-    <div class="card">
-        <div class="container-img">
-            <a href="#"><img src="{{ product.avatar.url }}" class="img" alt="Denim Jeans"></a>
-        </div>
-        
-        <div class="intro">
-            <a href="{% url 'PhoneSaleApp:detail' product.idProduct %}"><h6>{{ product.name }}</h6></a>
-            <p class="price">{{ product.price }}</p>
-            <p class="description">{{ product.description }}</p>
-        </div>
-        <div>
-            <a href="{% url 'PhoneSaleApp:update' product.idProduct %}"><button type="button" class="btn btn-link" ><i class='fas fa-pencil-alt'></i></button></a>
-            <button type="button" class="btn btn-link"><i class='fas fa-trash-alt' ></i></button>
+    <div class="col-lg-3" id="{{product.idProduct}}" >
+        <div class="card" id = "{{forloop.counter|color_item}}" >
+            <div class="container-img" >
+                <a href="#"><img src="{{ product.avatar.url }}" class="img" alt="Denim Jeans"></a>
+            </div>
+            <div class="intro">
+                <a href="{% url 'PhoneSaleApp:detail' product.idProduct %}"><h6>{{ product.name }}</h6></a>
+                <p class="price">{{ product.price }}</p>
+                <p class="description">{{ product.description }}</p>
+            </div>
+            <div>
+                <a href="{% url 'PhoneSaleApp:update' product.idProduct %}"><button type="button" class="btn btn-link" ><i class='fas fa-pencil-alt'></i></button></a>
+                <button type="button" class="btn btn-link" onclick="deleteCommand('{{ product.idProduct }}')"><i class='fas fa-trash-alt' ></i></button>
+            </div>
         </div>
     </div>
-</div>
 {% endfor %}
   
 

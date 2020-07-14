@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Product, Brand
 from .forms import ProductForm
-
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 brand = [
     {
         'name': 'vst',
@@ -52,7 +53,12 @@ def update_product(request, product_id):
         pro.save()
         return render(request, "PhoneSaleApp/index.html")
 
-
+@csrf_exempt
+def delete_product(request, product_id):
+    pro = Product.objects.get(idProduct = product_id)
+    if request.method == "DELETE":
+        pro.delete()
+        return JsonResponse({"message":'success'})
 
 
 # post san pham moi: input: model san pham, output: json{success: true}
